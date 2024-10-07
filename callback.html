@@ -6,14 +6,14 @@
     <title>Callback Page</title>
 </head>
 <body>
-    <h1>Autorização Recebida</h1>
+    <h1>AutorizaÃ§Ã£o Recebida</h1>
     <p id="auth-code"></p>
 
     <script>
-        // Captura o código de autorização da URL
+        // Captura o cÃ³digo de autorizaÃ§Ã£o da URL
         const urlParams = new URLSearchParams(window.location.search);
         const authCode = urlParams.get('code');
-        document.getElementById('auth-code').textContent = `Código de autorização: ${authCode}`;
+        document.getElementById('auth-code').textContent = `CÃ³digo de autorizaÃ§Ã£o: ${authCode}`;
     </script>
 </body>
 </html>
