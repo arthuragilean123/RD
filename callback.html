@@ -6,14 +6,20 @@
     <title>Callback Page</title>
 </head>
 <body>
-    <h1>Autorização Recebida</h1>
-    <p id="auth-code"></p>
-
+    <h1>Autenticação RD Station</h1>
+    <p id="code"></p>
+    <p id="state"></p>
     <script>
-        // Captura o código de autorização da URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const authCode = urlParams.get('code');
-        document.getElementById('auth-code').textContent = `Código de autorização: ${authCode}`;
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        document.getElementById('code').textContent = 'Código de Autorização: ' + getParameterByName('code');
+        document.getElementById('state').textContent = 'State: ' + getParameterByName('state');
     </script>
 </body>
 </html>
